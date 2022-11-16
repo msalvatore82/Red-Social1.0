@@ -6,7 +6,6 @@
 
 ### About the project:
 In the backend project we will combine the node + express technologies, in addition to moongose/Mongodb and Javascript development.
-Technologies for the development of the API we will use mysql with Sequelize and express.
 
 # 📋 Pre requirements
 

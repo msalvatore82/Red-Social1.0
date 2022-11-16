@@ -39,7 +39,7 @@ in the .env file set your credentials
 > PORT
 
 9 - You should rename the "config-example.json" file to "config.json" 
-> Then edit the "development" fields with your "name", "password", "db name" and "secret word".
+> Then edit the "MONGO_URI" fields with your "name", "password", "db name" and "secret word".
 
 10 - The project is ready to start
 > npm start

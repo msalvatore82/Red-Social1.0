@@ -9,7 +9,7 @@ app.use(express.static("./public"))
 app.use(express.json())
 
 app.use('/users', require('./routes/Users'));
-app.use('/post', require('./routes/Posts'));
+/* app.use('/post', require('./routes/Posts')); */
 app.use("/comment", require('./routes/comments') )
 
 

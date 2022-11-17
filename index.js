@@ -5,14 +5,16 @@ require("dotenv").config();
 const { dbConnection } = require("./config/config")
 const { typeError } = require('./Middleware/errors');
 app.use(express.static("./public"))
+const swaggerUI = require('swagger-ui-express')
+const docs = require('./docs/index')
 
 app.use(express.json())
 
 app.use('/users', require('./routes/Users'));
 app.use('/post', require('./routes/Posts'));
-/* app.use("/comment", require('./routes/comments') )
- */
+app.use("/comment", require('./routes/comments'));
 
+app.use('/api-docs', swaggerUI.serve,swaggerUI.setup(docs))
 app.use(typeError)
 
 dbConnection()

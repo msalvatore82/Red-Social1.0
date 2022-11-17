@@ -1,20 +1,20 @@
 module.exports = {
   paths: {
-    "/tasks/getAllTask": {
+    "/users/login": {
       get: {
         tags: {
-          Tasks: "Get Tasks",
+          Tasks: "Login User",
         },
-        description: "Get tasks",
+        description: "Login User",
         operationId: "getTasks",
         parameters: [],
         responses: {
           200: {
-            description: "Tasks were obtained",
+            description: "Bienvenid@",
             content: {
               "application/json": {
                 schema: {
-                  $ref: "#/components/schemas/task",
+                  $ref: "#/components/schemas/users",
                 },
               },
             },
@@ -112,29 +112,3 @@ module.exports = {
   },
 };
 
-// module.exports = {
-//   paths: {
-//     "/tasks": {
-//       get: {
-//         tags: {
-//           Tasks: "Get Tasks",
-//         },
-//         description: "Get tasks",
-//         operationId: "getTasks",
-//         parameters: [],
-//         responses: {
-//           200: {
-//             description: "Tasks were obtained",
-//             content: {
-//               "application/json": {
-//                 schema: {
-//                   $ref: "#/components/schemas/task",
-//                 },
-//               },
-//             },
-//           },
-//         },
-//       },
-//     },
-//   },
-// };

@@ -1,9 +1,10 @@
 const basicInfo = require("./basicInfo");
-const tasks = require("./tasks");
+const tasks = require("./users");
 const components = require("./components");
+const users = require("./users");
 
 module.exports = {
   ...basicInfo,
-  ...tasks,
- ...components,
+  ...users,
+ ...components
 };

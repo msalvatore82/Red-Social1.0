@@ -70,27 +70,31 @@ in the .env file set your credentials
 
 #### Post 📬​
 - CRUD Categories
-- Endpoint to create a post (tauthenticated).
+- Endpoint to create a post (authenticated),(option to upload image, (Middleware Multer))
 - Endpoint to update a post (authenticated).
 - Endpoint to delete a post (authenticated).
 - Endpoint to bring all the posts together with the users who made that post and together with the comments of the post.
 - Endpoint to search post by name.
 - Endpoint to search post by id.
 - Validation when creating a post so that all the fields are filled in (except the image, which is not required) and if it is not done, it returns a message.
-- Pagination of 🔟​ in 🔟​ 📄​.
+- Endpoint to search all post whit pagination of 🔟​ in 🔟​ 📄​.
 
 
 #### Comment 📝​
-- Endpoint to create a comment on a specific post
+- Endpoint to create a comment on a specific post (option to upload image, (Middleware Multer))
 - Endpoint to remove comment.
 - Endpoint to like a comment.
 - Endpoint to remove like.
 - Endpoint with MULTER implementation to upload images to the comments.
 - Endopoint to remove comment.
+- Endpoint to search all comment whit pagination of 🔟​ in 🔟​ 📄​.
 
 #### Likes ❤️​👌​👍​
--Endpoint to like a post
--Endpoint to remove as a post
+- Endpoint to like a post
+- Endpoint to remove as a post
+- Endpoint to like a comment
+- Endpoint to remove as a comment
+
 
 #### Middleware:
 - Authentication.

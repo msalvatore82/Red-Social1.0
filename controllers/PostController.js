@@ -1,6 +1,5 @@
 const Post = require("../models/Post");
 const User = require("../models/User");
-const Comment = require("../models/Comment");
 
 const PostController = {
   async createPostByUser(req, res, next) {
@@ -25,7 +24,7 @@ const PostController = {
   async deletePost(req, res) {
     try {
       const post = await Post.findByIdAndDelete(req.params._id);
-      res.send({ message: "Post deleted" });
+      res.send({ message: "Post eliminado", post});
     } catch (error) {
       console.error(error);
       res.status(500).send({

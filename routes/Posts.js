@@ -3,9 +3,6 @@ const router = express.Router()
 const { authentication } = require("../Middleware/autenticacion");
 const {  uploadPostImages } = require('../Middleware/multer');
 
-
-
-
 const PostController = require('../controllers/PostController');
 
 router.post("/createPostByUser/",authentication, uploadPostImages.single('imagePost'), PostController.createPostByUser)

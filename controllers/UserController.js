@@ -91,10 +91,8 @@ const UserController = {
 
   async getUser(req, res) {
     try {
-      const user = await User.findById(req.params._id, req.body, {
-        new: true,
-      });
-      res.send({ message: "Su usuario", user });
+      const user = await User.find();
+      res.send({ message: "Sus usuario", user });
     } catch (error) {
       console.error(error);
     }
@@ -134,8 +132,15 @@ const UserController = {
         msg: "Ha habido un problema al traernos el usuario",
         error,
       });
-    }
-  },
+    } },
+    async getUserById(req, res) {
+      try {
+        const user = await User.findById(req.params._id)
+        res.send({ message: "Su Usuario", user });
+      } catch (err) {
+        res.status(500).send({ msg: "Su Usuario no existe", err });
+      }
+    },
   async followers(req, res) {
     try {
       const existUser = await User.findById(req.params._id);

@@ -8,7 +8,7 @@ const CommentController = {
       const comment = await Comment.create({
         ...req.body,
         userId: req.user._id,
-        image: req.file.filename,
+        image: req.file?.filename,
       });
       const post = await Post.findByIdAndUpdate(req.body.postId, {
         $push: { comment: comment._id },

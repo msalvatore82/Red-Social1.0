@@ -12,6 +12,7 @@ app.use('/users', require('./routes/Users'));
 app.use('/post', require('./routes/Posts'));
 app.use("/comment", require('./routes/comments') )
 
+
 app.use(typeError)
 
 dbConnection()

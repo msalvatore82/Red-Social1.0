@@ -99,17 +99,22 @@ in the .env file set your credentials
 
 ### Languages and Tools:
 <p align="center">
-  <img align="center" alt="Rafa-Js" height="30" width="50" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg">
-  <img align="center" alt="Rafa-Node" height="30" width="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg">
-  <img align="center" alt="Rafa-Git" height="30" width="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg">
-  <img align="center" alt="Rafa-VisualStudio" height="30" width="30" src="https://cdn.svgporn.com/logos/visual-studio-code.svg">
-  <img align="center" alt="Rafa-github" height="30" width="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg">
-  <img align="center" alt="mysql" height="50" width="50" src="https://avatars.githubusercontent.com/u/7552965?s=400&v=4.svg">
-  <img align="center" alt="npm" height="30" width="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg">
-  <img align="center" alt="postman" height="40" width="40" src="https://cdn.worldvectorlogo.com/logos/postman.svg">
-  <img align="center" alt="mongo" height="30" width="30" src="https://p.kindpng.com/picc/s/385-3850482_mongodb-logo-png-transparent-png.png">
- <img align="center" alt="nodemailer" height="30" width="30" src="https://raw.githubusercontent.com/andris9/Nodemailer/master/assets/nm_logo_200x136.png">
-  <img align="center" alt="bcrypt" height="30" width="30" src="https://img.stackshare.io/package/19054/default_2be036aaca5c71baf790e00f1ef80dd37a625905.png">
+  <img align="center" height="30" width="50" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg">
+  <img align="center"  height="30" width="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg">
+  <img align="center"  height="30" width="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg">
+  <img align="center" height="30" width="30" src="https://cdn.svgporn.com/logos/visual-studio-code.svg">
+  <img align="center"  height="30" width="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg">
+  <img align="center"  height="50" width="50" src="https://avatars.githubusercontent.com/u/7552965?s=400&v=4.svg">
+  <img align="center" height="30" width="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg">
+  <img align="center"  height="40" width="40" src="https://cdn.worldvectorlogo.com/logos/postman.svg">
+
+  <img align="center" height="30" width="30" src="https://p.kindpng.com/picc/s/385-3850482_mongodb-logo-png-transparent-png.png">
+
+ <img align="center"  height="30" width="30" src="https://raw.githubusercontent.com/andris9/Nodemailer/master/assets/nm_logo_200x136.png">
+
+  <img align="center" height="30" width="30" src="https://img.stackshare.io/package/19054/default_2be036aaca5c71baf790e00f1ef80dd37a625905.png">
+  
+   <img align="center" height="30" width="30" src="https://avatars2.githubusercontent.com/u/7658037?v=3&s=400">
       </p> 
 
 

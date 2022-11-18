@@ -24,11 +24,11 @@ const PostController = {
   async deletePost(req, res) {
     try {
       const post = await Post.findByIdAndDelete(req.params._id);
-      res.send({ message: "Post eliminado", post});
+      res.send({ message: "Post eliminado", post });
     } catch (error) {
       console.error(error);
       res.status(500).send({
-        message: "there was a problem trying to remove the post",
+        message: "Ha habido un problema creando el Post",
       });
     }
   },
@@ -37,7 +37,7 @@ const PostController = {
       const post = await Post.findByIdAndUpdate(req.params._id, req.doby, {
         new: true,
       });
-      res.send({ message: "Post successfully updated" });
+      res.send({ message: "Post actualizado con exito" });
     } catch (error) {
       console.error(error);
     }
@@ -53,25 +53,13 @@ const PostController = {
     } catch (error) {
       console.error(error);
     }
-    },
-    async getAll2(req, res) {
-      try {
-        const { page = 1, limit = 10 } = req.query;
-        const post = await Post.find()
-          .populate("comment")
-          .limit(limit)
-          .skip((page - 1) * limit);
-        res.send(post);
-      } catch (error) {
-        console.error(error);
-      }
   },
   async getPostById(req, res) {
     try {
       const post = await Post.findById(req.params._id);
-      res.send({ message: "Your Post", post });
+      res.send({ message: "Tu post", post });
     } catch (err) {
-      res.status(500).send({ msg: "your product no exist", err });
+      res.status(500).send({ msg: "Tu post no existe", err });
     }
   },
   async getPostByName(req, res) {
@@ -85,33 +73,10 @@ const PostController = {
     } catch (error) {
       console.error(error);
       res.status(500).send({
-        msg: "Ha habido un problema al traernos los productos",
+        msg: "Ha habido un problema al buscar el post",
         error,
       });
     }
-
-    // async createPostByUser(req, res, next) {
-    //   try {
-    //     const post = await Post.create({
-    //       ...req.body,
-    //       userId: req.user._id,
-    //     });
-    //     res
-    //       .status(201)
-    //       .send({
-    //         msg: `${req.user.name} gracias por hacer tu comentario`,
-    //         post,
-    //       });
-    //     // try {
-    //     //   const post = await Post.create(req.body);
-    //     //   res.status(201).send(post);
-    //   } catch (error) {
-    //     console.error(error);
-    //     res
-    //       .status(500)
-    //       .send({ msg: "Ha habido un problema creando el Post", error });
-    //     next(error);
-    //   }
   },
   async like(req, res) {
     try {
@@ -151,11 +116,11 @@ const PostController = {
   async deleteAllPost(req, res) {
     try {
       const post = await Post.deleteMany();
-      res.send({ message: "Posts deleted" });
+      res.send({ message: "Posts eliminado" });
     } catch (error) {
       console.error(error);
       res.status(500).send({
-        message: "there was a problem trying to remove the post",
+        message: "Hay un problema al eliminar el post",
       });
     }
   },

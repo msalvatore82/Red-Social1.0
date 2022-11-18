@@ -183,6 +183,18 @@ const UserController = {
       });
     }
   },
+  async deleteUser(req, res) {
+    try {
+      const user = await User.findByIdAndDelete(req.params._id);
+      res.send({ message: "Usuario eliminado", user });
+    } catch (error) {
+      console.error(error);
+      res.status(500).send({
+        message: "Hay un problema al tratar de eliminar el usuario",
+      });
+    }
+  }
+
 };
 
 module.exports = UserController;

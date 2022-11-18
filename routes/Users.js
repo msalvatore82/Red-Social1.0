@@ -7,6 +7,7 @@ const { uploadUserImages } = require('../Middleware/multer');
 router.post("/create", uploadUserImages.single('imageUser'), UserController.create)
 router.post("/login",UserController.login)
 router.delete("/logout/:_id",authentication, UserController.logout)
+router.delete("/deleteUser/:_id", UserController.deleteUser)
 router.get("/getUser", UserController.getUser)
 router.get("/getInfo", authentication, UserController.getInfo);
 router.put("/updateUser/:_id", authentication, UserController.updateUser)

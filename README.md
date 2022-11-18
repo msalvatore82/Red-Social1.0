@@ -104,8 +104,6 @@ in the .env file set your credentials
 ### Languages and Tools:
 <p align="center">
   <img align="center" height="30" width="50" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg">
-<<<<<<< HEAD
-
   <img align="center"  height="30" width="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg">
 
   <img align="center"  height="30" width="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg">
@@ -118,14 +116,12 @@ in the .env file set your credentials
 
   <img align="center" height="30" width="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg">
 
-=======
   <img align="center"  height="30" width="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg">
   <img align="center"  height="30" width="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg">
   <img align="center" height="30" width="30" src="https://cdn.svgporn.com/logos/visual-studio-code.svg">
   <img align="center"  height="30" width="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg">
   <img align="center"  height="50" width="50" src="https://avatars.githubusercontent.com/u/7552965?s=400&v=4.svg">
   <img align="center" height="30" width="50" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg">
->>>>>>> c1468b2ef11fd9d281532e63e25d171d19f37609
   <img align="center"  height="40" width="40" src="https://cdn.worldvectorlogo.com/logos/postman.svg">
 
   <img align="center" height="30" width="30" src="https://p.kindpng.com/picc/s/385-3850482_mongodb-logo-png-transparent-png.png">

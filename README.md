@@ -44,7 +44,7 @@ in the .env file set your credentials
 10 - The project is ready to start
 > npm start
 
-## Requirements:
+## Project requirements :
 - User registration using Bcrypt.
 - User login + token + middleware.
 - Give/remove Like a post.

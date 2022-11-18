@@ -11,7 +11,7 @@ const UserController = {
       const user = await User.create({
         ...req.body,
         password: password,
-        confirmed: true,
+        confirmed: false,
         image: req.file.filename
       });
       const emailToken = jwt.sign({email:req.body.email},process.env.JWT_SECRET,{expiresIn:'48h'})
@@ -19,8 +19,10 @@ const UserController = {
       await transporter.sendMail({
         to: req.body.email,
         subject: "Confirme su registro",
-        html: `<h3>Bienvenido, estás a un paso de registrarte </h3>
-        <a href="${url}"> Click para confirmar tu registro</a>
+        html: `<img src="https://i.pinimg.com/originals/00/ee/c3/00eec37e1375aa1ebf238c59b54ad6ab.jpg" alt="Funny image">
+        <br>
+        <h2>Estás a un paso de registrarte 🚶​ </h2>
+        <h2><a href="${url}">👉 ​​Click aqui para confirmar tu registro 👈</a></h2>
         `,
       });
       res.status(201).send({
@@ -30,7 +32,7 @@ const UserController = {
     } catch (err) {
       err.origin = "User";
       console.log(err)
-      next(err);
+      next(err); 
     }
   },
   async confirm(req, res) {

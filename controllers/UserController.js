@@ -6,13 +6,14 @@ const transporter = require("../config/nodemailer");
 
 const UserController = {
   async create(req, res, next) {
+    if (req.file) req.body.image = req.file.filename
     try {
       const password = bcrypt.hashSync(req.body.password, 10);
       const user = await User.create({
         ...req.body,
         password: password,
         confirmed: false,
-        image: req.file.filename
+        image: req.file?.filename
       });
       const emailToken = jwt.sign({email:req.body.email},process.env.JWT_SECRET,{expiresIn:'48h'})
       const url = 'http://localhost:8080/users/confirm/'+ emailToken

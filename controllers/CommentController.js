@@ -70,7 +70,6 @@ const CommentController = {
           { $push: { likesC: req.user._id } },
           { new: true }
         );
-
         await User.findByIdAndUpdate(req.user._id, {
           $push: { likesC: comment._id },
         });

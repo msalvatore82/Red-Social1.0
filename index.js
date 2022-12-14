@@ -7,8 +7,9 @@ const { typeError } = require('./Middleware/errors');
 app.use(express.static("./public"))
 const swaggerUI = require('swagger-ui-express')
 const docs = require('./docs/index')
+const cors = require("cors")
 
-app.use(express.json())
+app.use(express.json(), cors())
 
 app.use('/users', require('./routes/Users'));
 app.use('/post', require('./routes/Posts'));

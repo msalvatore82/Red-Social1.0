@@ -13,7 +13,7 @@ router.get("/getPostById/:_id",authentication, PostController.getPostById)
 router.get("/getPostByName/:title", PostController.getPostByName)
 router.put('/like/:_id', authentication, PostController.like);
 router.put('/nolikes/:_id', authentication, PostController.noLike);
-router.delete("/deleteAllPost", PostController.deleteAllPost)
+router.delete("/deleteAllPost",authentication,  PostController.deleteAllPost)
 
 
 module.exports = router;

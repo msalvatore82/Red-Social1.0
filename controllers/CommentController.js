@@ -54,6 +54,7 @@ const CommentController = {
     try {
       const { page = 1, limit = 10 } = req.query;
       const comment = await Comment.find()
+      
         .limit(limit)
         .skip((page - 1) * limit);
       res.send(comment);

@@ -106,7 +106,7 @@ const UserController = {
         .populate("postIds")
         .populate("likes")
         .populate("commentIds");
-      res.send(user);
+        res.send({ msg: "su usuario", user });
     } catch (error) {
       console.error(error);
     }

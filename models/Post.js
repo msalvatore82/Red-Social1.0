@@ -1,14 +1,9 @@
 const mongoose = require("mongoose");
 const ObjectId = mongoose.SchemaTypes.ObjectId;
-
 const PostSchema = new mongoose.Schema(
   {
+    post: {type: String, required: [true, "El post debe tener al menos 15 caracteres"]},
     userId: { type: ObjectId, ref: "User" },
-    title: { type: String, required: [true, "Tienes que completar el title"] },
-    post: {
-      type: String,
-      required: [true, "El post debe tener al menos 15 caracteres"],
-    },
     likes: [{ type: ObjectId }],
     comment: [{ type: ObjectId, ref: "User" }],
     image: String,

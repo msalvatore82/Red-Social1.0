@@ -12,7 +12,7 @@ const cors = require("cors")
 app.use(express.json(), cors())
 
 app.use('/users', require('./routes/Users'));
-app.use('/post', require('./routes/Posts'));
+app.use('/posts', require('./routes/Posts'));
 app.use("/comment", require('./routes/comments'));
 
 app.use('/api-docs', swaggerUI.serve,swaggerUI.setup(docs))

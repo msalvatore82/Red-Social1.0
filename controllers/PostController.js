@@ -1,5 +1,6 @@
 const User = require("../models/User.js");
 const Post = require("../models/Post.js");
+const Comment = require("../models/Comment.js");
 
 const PostController = {
   async createPostByUser(req, res, next) {
@@ -44,11 +45,13 @@ const PostController = {
   },
   async getAll(req, res) {
     try {
-      const { page = 1, limit = 10 } = req.query;
-      const post = await Post.find()
-        .populate("comment")
-        .limit(limit)
-        .skip((page - 1) * limit);
+      // const { page = 1, limit = 10 } = req.query;
+      const post = await Post.find().sort({createdAt: -1})
+      .populate({ path: 'comment', model: Comment})
+     
+      // .sort(-1)
+        // .limit(limit)
+        // .skip((page - 1) * limit);
       res.send(post);
     } catch (error) {
       console.error(error);

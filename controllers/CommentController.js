@@ -16,7 +16,6 @@ const CommentController = {
       await User.findByIdAndUpdate(req.user._id, {
         $push: { commentIds: comment._id },
       });
-      console.log("coment", comment._id);
       res.send({ msg: "Gracias por hacer tu comentario" });
     } catch (error) {
       console.error(error);
@@ -52,11 +51,14 @@ const CommentController = {
   },
   async getAllComment(req, res) {
     try {
-      const { page = 1, limit = 10 } = req.query;
-      const comment = await Comment.find()
-      
-        .limit(limit)
-        .skip((page - 1) * limit);
+      // const { page = 1, limit = 10 } = req.query;
+      const comment = await Comment.find().sort({createdAt: -1})
+      .populate({
+        path: 'userId',
+        select: 'name -_id'
+    })
+        // .limit(limit)
+        // .skip((page - 1) * limit);
       res.send(comment);
     } catch (error) {
       console.error(error);

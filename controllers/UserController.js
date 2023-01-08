@@ -6,21 +6,25 @@ const transporter = require("../config/nodemailer");
 
 const UserController = {
   async create(req, res, next) {
-    if (req.file) req.body.image = req.file.filename
+    if (req.file) req.body.image = req.file.filename;
     try {
       const password = bcrypt.hashSync(req.body.password, 10);
       const user = await User.create({
         ...req.body,
         password: password,
         confirmed: false,
-        image: req.file?.filename
+        image: req.file?.filename,
       });
-      const emailToken = jwt.sign({email:req.body.email},process.env.JWT_SECRET,{expiresIn:'48h'})
-      const url = 'http://localhost:8080/users/confirm/'+ emailToken
+      const emailToken = jwt.sign(
+        { email: req.body.email },
+        process.env.JWT_SECRET,
+        { expiresIn: "48h" }
+      );
+      const url = "http://localhost:8080/users/confirm/" + emailToken;
       await transporter.sendMail({
         to: req.body.email,
         subject: "Confirme su registro",
-        html: `<img src="https://i.pinimg.com/originals/00/ee/c3/00eec37e1375aa1ebf238c59b54ad6ab.jpg" alt="Funny image">
+        html: `<img src="../img/logo.jpg" alt="Funny image">
         <br>
         <h2>Estás a un paso de registrarte 🚶​ </h2>
         <h2><a href="${url}">👉 ​​Click aqui para confirmar tu registro 👈</a></h2>
@@ -32,19 +36,19 @@ const UserController = {
       });
     } catch (err) {
       err.origin = "User";
-      console.log(err)
-      next(err); 
+      console.log(err);
+      next(err);
     }
   },
   async confirm(req, res) {
     try {
-      const token = req.params.emailToken
-       const payload = jwt.verify(token,process.env.JWT_SECRET)
-         await User.updateOne(
-        { email:payload.email },
-        
+      const token = req.params.emailToken;
+      const payload = jwt.verify(token, process.env.JWT_SECRET);
+      await User.updateOne(
+        { email: payload.email },
+
         {
-         confirmed: true,
+          confirmed: true,
         }
       );
 
@@ -94,8 +98,8 @@ const UserController = {
 
   async getUser(req, res) {
     try {
-      const user = await User.find();
-      res.send({ message: "Sus usuario", user });
+      const users = await User.find();
+      res.send({ message: "Sus usuario", users });
     } catch (error) {
       console.error(error);
     }
@@ -106,7 +110,8 @@ const UserController = {
         .populate("postIds")
         .populate("likes")
         .populate("commentIds");
-        res.send({ msg: "su usuario", user });
+
+      res.send({ msg: "su usuario", user });
     } catch (error) {
       console.error(error);
     }
@@ -135,15 +140,24 @@ const UserController = {
         msg: "Ha habido un problema al traernos el usuario",
         error,
       });
-    } },
-    async getUserById(req, res) {
-      try {
-        const user = await User.findById(req.params._id)
-        res.send({ message: "Su Usuario", user });
-      } catch (err) {
-        res.status(500).send({ msg: "Su Usuario no existe", err });
-      }
-    },
+    }
+  },
+  async getUserById(req, res) {
+    try {
+      const user = await User.findById(req.params._id);
+      res.send({ message: "Su Usuario", user });
+    } catch (err) {
+      res.status(500).send({ msg: "Su Usuario no existe", err });
+    }
+  },
+  async getFollowersById(req, res) {
+    try {
+      const user = await User.findById(req.params._id);
+      res.send({ message: "Su follower", user });
+    } catch (err) {
+      res.status(500).send({ msg: "Su follower no existe", err });
+    }
+  },
   async followers(req, res) {
     try {
       const existUser = await User.findById(req.params._id);
@@ -155,11 +169,11 @@ const UserController = {
         );
 
         await User.findByIdAndUpdate(req.user._id, {
-         $push: { seguidos: req.params._id}
+          $push: { seguidos: req.params._id },
         });
         res
           .status(400)
-          .send({ message: "enhorabuena estas siguiendo a", user:user.name });
+          .send({ message: "enhorabuena estas siguiendo a", user: user.name });
       } else {
         res.status(400).send({ message: "Ey ya sigues a este usuario :)" });
       }
@@ -171,12 +185,10 @@ const UserController = {
   async unfollow(req, res) {
     try {
       await User.findByIdAndUpdate(req.params._id, {
-        $pull: { followers: req.user._id }
-      
+        $pull: { followers: req.user._id },
       });
       await User.findByIdAndUpdate(req.user._id, {
-        $pull: { seguidos: req.params._id }, 
-      
+        $pull: { seguidos: req.params._id },
       });
       res.send({ message: "Ya no sigues a este usuario" });
     } catch (error) {
@@ -196,8 +208,7 @@ const UserController = {
         message: "Hay un problema al tratar de eliminar el usuario",
       });
     }
-  }
-
+  },
 };
 
 module.exports = UserController;

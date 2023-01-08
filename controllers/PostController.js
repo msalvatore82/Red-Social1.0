@@ -7,6 +7,7 @@ const PostController = {
     try {
       const post = await Post.create({
         ...req.body,
+        userId: req.user._id,
         image: req.file?.filename,
       });
       await User.findByIdAndUpdate(req.user._id, {
@@ -35,9 +36,13 @@ const PostController = {
   },
   async updatePost(req, res) {
     try {
-      const post = await Post.findByIdAndUpdate(req.params._id, req.doby, {
-        new: true,
-      });
+      const post = await Post.findByIdAndUpdate(
+                req.params._id,
+                { ...req.body,  userId: req.user._id},
+                {
+                  new: true,
+                }
+            );
       res.send({ message: "Post actualizado con exito" });
     } catch (error) {
       console.error(error);
@@ -47,9 +52,11 @@ const PostController = {
     try {
       // const { page = 1, limit = 10 } = req.query;
       const post = await Post.find().sort({createdAt: -1})
-      .populate({ path: 'comment', model: Comment})
-     
-      // .sort(-1)
+      .populate({ path: 'comment', model: Comment, })
+      .populate({
+        path: 'userId',
+        select: 'name -_id'
+    })
         // .limit(limit)
         // .skip((page - 1) * limit);
       res.send(post);
@@ -59,7 +66,12 @@ const PostController = {
   },
   async getPostById(req, res) {
     try {
-      const post = await Post.findById(req.params._id);
+      const post = await Post.findById(req.params._id)
+      .populate({ path: 'comment', model: Comment, })
+      .populate({
+        path: 'userId',
+        select: 'name -_id'
+    })
       res.send({ message: "Tu post", post });
     } catch (err) {
       res.status(500).send({ msg: "Tu post no existe", err });
